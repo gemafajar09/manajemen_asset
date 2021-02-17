@@ -26,6 +26,12 @@ class KategoriController extends Controller
         if($id == '') 
         {
             $simpan = DB::table('tb_kategori')->insert(['kategori_nama' => $r->kategori_nama]);
+            // rekap activity
+            DB::table('tb_activity')->insert([
+                'id_pegawai' => session('id'),
+                'tanggal' => date('Y-m-d H:i:s'),
+                'activity' => 'Menambah Data Kategori'
+            ]);
             if($simpan == true) {
                 $message = array('message' => 'Success!', 'title' => 'Data kategori berhasil ditambahkan');
                 return response()->json($message);
@@ -33,6 +39,12 @@ class KategoriController extends Controller
             // return back()->with('pesan', 'Data Berhasil Disimpan');
         } else {
             $update = DB::table('tb_kategori')->where('kategori_id', $id)->update(['kategori_nama' =>$r->kategori_nama]);
+            // rekap activity
+            DB::table('tb_activity')->insert([
+                'id_pegawai' => session('id'),
+                'tanggal' => date('Y-m-d H:i:s'),
+                'activity' => 'Mengubah Data Kategori'
+            ]);
             if($update == true) {
                 $message = array('message' => 'Success!', 'title' => 'Data kategori berhasil diubah');
                 return response()->json($message);
@@ -41,24 +53,15 @@ class KategoriController extends Controller
         }
     } 
 
-    // public function hapus(Request $r) 
-    // {
-    //     $kategori_id = $r->kategori_id;
-
-    //     $hapus = DB::table('tb_kategori')->where('kategori_id', $kategori_id)->delete();
-
-    //     if($hapus == true) 
-    //     {
-    //         echo json_encode(['status' =>200]);
-    //         // return back()->with('pesan', 'Data Berhasil Dihapus');
-    //     } else {
-    //         echo json_encode(['status' =>400]);
-    //     }
-    // }
-
     public function hapus($kategori_id)
     {
         $delete = DB::table('tb_kategori')->where('kategori_id', $kategori_id)->delete();
+        // rekap activity
+        DB::table('tb_activity')->insert([
+            'id_pegawai' => session('id'),
+            'tanggal' => date('Y-m-d H:i:s'),
+            'activity' => 'menghapus Data Kategori'
+        ]);
         // check data deleted or not
         if ($delete !== null) {
             $success = true;

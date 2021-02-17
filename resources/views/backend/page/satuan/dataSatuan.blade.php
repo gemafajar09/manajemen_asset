@@ -1,4 +1,4 @@
-
+@include('backend.component.datatable')
 <table id="example1" class="table table-bordered table-striped table-response">
     <thead>
         <tr>
@@ -8,7 +8,7 @@
         </tr>
     </thead>
     <tbody>
-    @foreach($satuan as $no => $satuan)
+        @foreach($satuan as $no => $satuan)
         <tr>
             <td>{{$no+1}}</td>
             <td>{{$satuan->satuan_nama}}</td>
@@ -17,9 +17,10 @@
                     '{{$satuan->satuan_id}}',
                     '{{$satuan->satuan_nama}}'
                 )" type="button" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i>Edit</button>
-                <button type="button" onclick="hapus('{{ $satuan->satuan_id }}')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</button>
+                <button type="button" onclick="hapus('{{ $satuan->satuan_id }}')" class="btn btn-danger btn-sm"><i
+                        class="fa fa-trash"></i> Delete</button>
             </td>
         </tr>
-    @endforeach
+        @endforeach
     </tbody>
 </table>

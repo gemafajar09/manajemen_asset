@@ -17,7 +17,7 @@ class CreateActivityModelsTable extends Migration
             $table->id('id_activity');
             $table->integer('id_pegawai');
             $table->date('tanggal');
-            $table->timestamps('activity');
+            $table->string('activity');
             $table->timestamps();
         });
     }

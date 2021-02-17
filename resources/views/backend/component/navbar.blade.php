@@ -31,7 +31,7 @@
 
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
-        Welcome, {{session('nama_lengkap')}}
+        Welcome, {{session('nama')}}
         </a>
         <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
           <a href="{{route('logout')}}" class="dropdown-item">Logout</a> 

@@ -38,7 +38,8 @@ class PegawaiController extends Controller
 
                 ]);
 
-                return back()->with('pesan', 'Data Berhasil Disimpan');
+                // return back()->with('pesan', 'Data Berhasil Disimpan');
+                return redirect('/pegawai')->with('pesan', 'data berhasil disimpan!');
             } else {
                 return back()->with('pesan', 'Data Gagal Disimpan');
             }    

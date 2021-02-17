@@ -24,6 +24,8 @@ Route::middleware(['sudah_login'])->group(function() {
     Route::get('/pegawai', 'PegawaiController@index')->name('pegawai');
     Route::post('/add-pegawai', 'PegawaiController@add')->name('add-pegawai');
     Route::get('/delete-pegawai/{id_pegawai}', 'PegawaiController@delete')->name('delete-pegawai');
+
+    // logout
     Route::get('/logout', 'LoginController@logout')->name('logout');
 
     // kategori

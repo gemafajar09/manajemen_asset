@@ -25,24 +25,24 @@ class DepartementController extends Controller
         if($id == '') 
         {
             $save = DB::table('tb_departement')->insert(['departement_nama' => $r->departement_nama]); 
+            // rekap activity
+            DB::table('tb_activity')->insert([
+                'id_pegawai' => session('id'),
+                'tanggal' => date('Y-m-d H:i:s'),
+                'activity' => 'Menambah Data Lokasi'
+            ]);
             $message = array('message' => 'Success!', 'title' => 'Lokasi berhasil ditambahkan');
                 return response()->json($message);
-            // if($save == true) {
-            //     echo json_encode(['status' => 200]);
-            // } else {
-            //     echo json_encode(['status' => 400]);
-            // }
-            // return back()->with('pesan', 'Data Berhasil Disimpan');
         } else {
             $update = DB::table('tb_departement')->where('departement_id', $id)->update(['departement_nama' =>$r->departement_nama]);
+            // rekap activity
+            DB::table('tb_activity')->insert([
+                'id_pegawai' => session('id'),
+                'tanggal' => date('Y-m-d H:i:s'),
+                'activity' => 'Mengubah Data Lokasi'
+            ]);
             $message = array('message' => 'Success!', 'title' => 'Lokasi berhasil diubah');
                 return response()->json($message);
-            // if($update == true) {
-            //     echo json_encode(['status' => 200]);
-            // } else {
-            //     echo json_encode(['status' => 400]);
-            // }
-            // return back()->with('pesan', 'Data Berhasil Diubah');
         }
     }
 
@@ -55,28 +55,14 @@ class DepartementController extends Controller
         if($hapus == true) 
         { 
             $message = array('message' => 'Success!', 'title' => 'Data berhasil dihapus');
+            // rekap activity
+            DB::table('tb_activity')->insert([
+                'id_pegawai' => session('id'),
+                'tanggal' => date('Y-m-d H:i:s'),
+                'activity' => 'Menghapus Data Lokasi'
+            ]);
             return response()->json($message);
         }
     }
-
-    // public function hapus($departement_id)
-    // {
-    //     $delete = DB::table('tb_departement')->where('departement_id', $departement_id)->delete();
-    //     // check data deleted or not
-    //     if ($delete !== null) {
-    //         $success = true;
-    //         $message = "Data berhasil dihapus";
-            
-    //     } else {
-    //         $success = true;
-    //         $message = "Data tidak ditemukan";
-    //     }
-
-    //     //  Return response
-    //     return response()->json([
-    //         'success' => $success,
-    //         'message' => $message,
-    //     ]); 
-    // }
     
 }

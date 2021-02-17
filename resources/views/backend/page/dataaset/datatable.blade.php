@@ -1,5 +1,5 @@
-
-<table id="example1" class="table table-bordered table-striped table-response">
+@include('backend.component.datatable')
+<table id="example1" class="table table-bordered table-striped table-response table-sm">
     <thead>
         <tr>
             <th>No</th>
@@ -19,7 +19,7 @@
         </tr>
     </thead>
     <tbody>
-    @foreach($aset as $no => $aset)
+        @foreach($aset as $no => $aset)
         <tr>
             <td>{{$no+1}}</td>
             <td>{{$aset->nama_aset}}</td>
@@ -33,9 +33,11 @@
             <td>{{$aset->departement_nama}}</td>
             <td>
                 @if($aset->status == 0)
-                <button onclick="status('{{ $aset->id_aset }}', 1)" class="fa fa-check-circle badge badge-danger"> Not Ready</button>
-                    @else
-                <button onclick="status('{{ $aset->id_aset }}', 0)" class="fa fa-check-circle badge badge-success"> Ready</button>   
+                <button onclick="status('{{ $aset->id_aset }}', 1)" class="fa fa-check-circle badge badge-danger"> Not
+                    Ready</button>
+                @else
+                <button onclick="status('{{ $aset->id_aset }}', 0)" class="fa fa-check-circle badge badge-success">
+                    Ready</button>
                 @endif
             </td>
             @if(session('level') == 1)
@@ -52,10 +54,11 @@
                     '{{$aset->nama_pegawai}}',
                     '{{$aset->departement_id}}',
                 )" type="button" class="btn btn-warning btn-sm"><i class="fa fa-edit"></i>Edit</button>
-                <button type="button" onclick="hapus('{{$aset->id_aset}}')" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i> Delete</a>
+                <button type="button" onclick="hapus('{{$aset->id_aset}}')" class="btn btn-danger btn-sm"><i
+                        class="fa fa-trash"></i> Delete</a>
             </td>
             @endif
         </tr>
-    @endforeach
+        @endforeach
     </tbody>
 </table>

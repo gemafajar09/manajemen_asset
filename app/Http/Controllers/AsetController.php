@@ -69,7 +69,7 @@ class AsetController extends Controller
                 DB::table('tb_activity')->insert([
                     'id_pegawai' => session('id'),
                     'tanggal' => date('Y-m-d H:i:s'),
-                    'activity' => 'Create Data Aset'
+                    'activity' => 'Menambah Data Aset'
                 ]);
     
                 if($simpan == true) 
@@ -102,7 +102,7 @@ class AsetController extends Controller
                 DB::table('tb_activity')->insert([
                     'id_pegawai' => session('id'),
                     'tanggal' => date('Y-m-d H:i:s'),
-                    'activity' => 'Update Data Aset'
+                    'activity' => 'Mengubah Data Aset'
                 ]);
     
                 if($update == true) 
@@ -122,7 +122,7 @@ class AsetController extends Controller
         DB::table('tb_activity')->insert([
             'id_pegawai' => session('id'),
             'tanggal' => date('Y-m-d H:i:s'),
-            'activity' => 'Change Status'
+            'activity' => 'Mengubah Status Data Aset'
         ]);
         $update = DB::table('tb_aset')->where('id_aset', $id_aset)->update(['status' => $status]);
         if($update == true) 
@@ -141,7 +141,7 @@ class AsetController extends Controller
         DB::table('tb_activity')->insert([
             'id_pegawai' => session('id'),
             'tanggal' => date('Y-m-d H:i:s'),
-            'activity' => 'Delete Data Aset'
+            'activity' => 'Menghapus Data Aset'
         ]);
         if($hapus == true) 
         { 
