@@ -29,6 +29,7 @@ class AsetController extends Controller
                         ->get();
                         // dd($data['aset']);
         return view('backend.page.dataaset.datatable',$data);
+        // return response()->json([$data['aset']]);
     }
 
     public function index() 
@@ -38,6 +39,7 @@ class AsetController extends Controller
         $data['satuan'] = DB::table('tb_satuan')->get();
         // dd($data['kategori']);
         return view('backend.page.dataaset.index', $data);
+        // return response()->json($data);
     }
 
     public function save(Request $r) 

@@ -15,8 +15,7 @@ class PegawaiController extends Controller
         // $data = PegawaiModel::all();
         $data = DB::table('tb_pegawai')->get();
         //  dd($data);
-        return view('backend.page.pegawai.index',compact('data'));
-        
+        return view('backend.page.pegawai.index',compact('data'));       
     }
 
     public function add(Request $r) {

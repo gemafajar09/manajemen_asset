@@ -187,7 +187,7 @@
             },
             dataType: 'JSON',
             success: function (data) {
-                // console.log(data)
+                console.log(data);
                 $('#asetAdd').modal('hide');
                 $('#isi').load('/data-table');
                 toastr.success(data.message, data.title, {
@@ -231,7 +231,6 @@
                     fadeOut: 4000,
                 });
             }
-
         })
     }
 
