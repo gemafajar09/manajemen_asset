@@ -6,5 +6,5 @@ use Illuminate\Database\Eloquent\Model;
 
 class KategoriModel extends Model
 {
-    //
+    protected $table = "tb_kategori";
 }

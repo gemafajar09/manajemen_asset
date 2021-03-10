@@ -107,7 +107,7 @@
               </a>
           </li>
           <li class="nav-item">
-              <a href="{{route('data-aset')}}" class="nav-link">
+              <a href="{{route('getUser-uke')}}" class="nav-link">
               <i class="nav-icon fas fa-server" aria-hidden="true"></i>
                 <p>IP Management</p>
               </a>

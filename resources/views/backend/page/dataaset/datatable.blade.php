@@ -1,5 +1,5 @@
 @include('backend.component.datatable')
-<table id="example1" class="table table-bordered table-striped table-response table-sm">
+<table id="example1" class="table table-bordered table-striped table-response">
     <thead>
         <tr>
             <th>No</th>

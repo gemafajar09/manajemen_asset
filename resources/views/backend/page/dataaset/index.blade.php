@@ -277,16 +277,30 @@
     }
 
     // fungsi untuk menampilkan tahun
-    let dateDropdown = document.getElementById('tahun_pengadaan');
-    let currentYear = new Date().getFullYear();
-    let earliestYear = 1970;
-    while (currentYear >= earliestYear) {
-        let dateOption = document.createElement('option');
-        dateOption.text = currentYear;
-        dateOption.value = currentYear;
-        dateDropdown.add(dateOption);
-        currentYear -= 1;
+    // let dateDropdown = document.getElementById('tahun_pengadaan');
+    // let currentYear = new Date().getFullYear();
+    // let earliestYear = 1980;
+    // while (currentYear >= earliestYear) {
+    //     let dateOption = document.createElement('option');
+    //     dateOption.text = currentYear;
+    //     dateOption.value = currentYear;
+    //     dateDropdown.add(dateOption);
+    //     currentYear -= 1;
+    // }
+
+    $('#tahun_pengadaan').each(function() {
+
+    var year = (new Date()).getFullYear();
+    var current = year;
+    year -= 1;
+    for (var i = 0; i < 20; i++) {
+    if ((year+i) == current)
+        $(this).append('<option selected value="' + (year + i) + '">' + (year + i) + '</option>');
+    else
+        $(this).append('<option value="' + (year + i) + '">' + (year + i) + '</option>');
     }
+
+    })
 
 </script>
 @endsection

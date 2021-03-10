@@ -67,6 +67,14 @@ Route::middleware(['sudah_login'])->group(function() {
     Route::post('/permohonan-simpan', 'PermohonanController@save');
     Route::post('/permohonan-status', 'PermohonanController@status');
     Route::post('/permohonan-hapus', 'PermohonanController@hapus');
+
+    // Route::get('/multiple-db', function () {
+    //     $getUsers = getUserModel::all();
+     
+    //     return view('multipledb', compact('getUsers'));
+    // });
+
+    Route::get('/getUser-uke', 'GetUserController@index')->name('getUser-uke');
 });
 
 

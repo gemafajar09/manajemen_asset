@@ -45,6 +45,7 @@ class KategoriController extends Controller
                 'tanggal' => date('Y-m-d H:i:s'),
                 'activity' => 'Mengubah Data Kategori'
             ]);
+            
             if($update == true) {
                 $message = array('message' => 'Success!', 'title' => 'Data kategori berhasil diubah');
                 return response()->json($message);
